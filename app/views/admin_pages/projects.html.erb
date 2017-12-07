@@ -1,2 +1,30 @@
-<h1>AdminPages#projects</h1>
-<p>Find me in app/views/admin_pages/projects.html.erb</p>
+<h1>All Projects</h1>
+
+<div class="project-list">
+   <table class="centered striped responsive-table">
+      <thead>
+         <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Job #</th>
+            <th>Original Contract</th>
+            <th>TM</th>
+            <th>People Following</th>
+            <th>Created By</th>
+         </tr>
+      </thead>
+         <tbody>
+            <% @projects.each_with_index do |project, index| %>
+               <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= project.name %></td>
+                  <td><%= project.job_num %></td>
+                  <td><%= "$#{project.original_contract_amount}" %></td>
+                  <td><%= project.terr_manager %></td>
+                  <td><%= project.users.count %></td>
+                  <td><%= project.created_by %> on <%= project.created_at.strftime('%D') %></td>
+               </tr>
+            <% end %>
+         </tbody>
+   </table>
+</div>

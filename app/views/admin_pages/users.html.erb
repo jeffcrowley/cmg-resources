@@ -1,2 +1,30 @@
-<h1>AdminPages#users</h1>
-<p>Find me in app/views/admin_pages/users.html.erb</p>
+<h1>All Users</h1>
+
+<div class="project-list">
+   <table class="centered striped responsive-table">
+      <thead>
+         <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Region</th>
+            <th>Followed Projects</th>
+            <th>Email</th>
+            <th>Created On</th>
+         </tr>
+      </thead>
+         <tbody>
+            <% @users.each_with_index do |user, index| %>
+               <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= user.name %></td>
+                  <td><%= user.title %></td>
+                  <td><%= user.region %></td>
+                  <td><%= user.projects.count %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.created_at.strftime('%D') %></td>
+               </tr>
+            <% end %>
+         </tbody>
+   </table>
+</div>

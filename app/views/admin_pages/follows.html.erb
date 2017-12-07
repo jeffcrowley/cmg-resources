@@ -1,2 +1,28 @@
-<h1>AdminPages#follows</h1>
-<p>Find me in app/views/admin_pages/follows.html.erb</p>
+<h1>All Follow Relationships</h1>
+
+<div class="project-list">
+   <table class="centered striped responsive-table">
+      <thead>
+         <tr>
+            <th></th>
+            <th>User</th>
+            <th></th>
+            <th>Project</th>
+            <th></th>
+            <th>Created At</th>
+         </tr>
+      </thead>
+         <tbody>
+            <% @follows.each_with_index do |follow, index| %>
+               <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= follow.user.name %></td>
+                  <td>has been following</td>
+                  <td><%= follow.project.name %> (<%= follow.project.job_num %>)</td>
+                  <td>since</td>
+                  <td><%= follow.created_at.strftime('%D') %></td>
+               </tr>
+            <% end %>
+         </tbody>
+   </table>
+</div>

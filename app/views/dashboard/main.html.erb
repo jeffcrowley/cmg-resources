@@ -3,6 +3,7 @@
    <table class="centered striped responsive-table">
       <thead>
          <tr>
+            <th></th>
             <th>Name</th>
             <th>Job #</th>
             <th>Original Contract</th>
@@ -12,8 +13,9 @@
          </tr>
       </thead>
          <tbody>
-            <% @followed_projects.each do |project| %>
+            <% @followed_projects.each_with_index do |project, index| %>
                <tr>
+                  <td><%= index + 1 %></td>
                   <td><%= project.name %></td>
                   <td><%= project.job_num %></td>
                   <td><%= "$#{project.original_contract_amount}" %></td>
