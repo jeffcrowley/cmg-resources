@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
+  get 'admin_pages/main'
+
+  get 'admin_pages/users'
+
+  get 'admin_pages/projects'
+
+  get 'admin_pages/follows'
+
+  root 'dashboard#main'
+
   devise_for :users
-  root 'static_pages#home'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

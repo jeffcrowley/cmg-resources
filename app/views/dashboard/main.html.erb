@@ -1,0 +1,27 @@
+<div class="project-list">
+   <h2>Your Projects</h2>
+   <table class="centered striped responsive-table">
+      <thead>
+         <tr>
+            <th>Name</th>
+            <th>Job #</th>
+            <th>Original Contract</th>
+            <th>TM</th>
+            <th>People Following</th>
+            <th>Created By</th>
+         </tr>
+      </thead>
+         <tbody>
+            <% @followed_projects.each do |project| %>
+               <tr>
+                  <td><%= project.name %></td>
+                  <td><%= project.job_num %></td>
+                  <td><%= "$#{project.original_contract_amount}" %></td>
+                  <td><%= project.terr_manager %></td>
+                  <td><%= project.users.count %></td>
+                  <td><%= project.created_by %></td>
+               </tr>
+            <% end %>
+         </tbody>
+   </table>
+</div>
