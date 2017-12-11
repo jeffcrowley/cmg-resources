@@ -1,0 +1,24 @@
+<h2>Create a New Project</h2>
+
+<%= simple_form_for(@project) do |f| %>
+      <div class="row">
+         <div class="col s12">
+            <div class="row">
+               <%= f.input :name, label: "Project Name", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :job_num, as: :string, label: "Job Number", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :original_contract_amount, as: :string, label: "Original Contract Amount", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :terr_manager, label: "Territory Manager", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.button :submit, label: "Create Project" %>
+            </div>
+         </div>
+      </div>
+<% end %>
+

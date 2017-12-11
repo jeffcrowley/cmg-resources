@@ -15,3 +15,13 @@
  */
 
 @import "materialize";
+
+/* * {
+   border: 1px dashed blue;
+}
+*/
+
+.nav-logo {
+   @extend .brand-logo;
+   left: 0.5rem;
+}

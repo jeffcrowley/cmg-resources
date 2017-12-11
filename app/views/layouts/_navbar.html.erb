@@ -1,0 +1,13 @@
+<nav>
+  <div class="nav-wrapper">
+    <%= link_to "CMG Resources", root_path, class: "nav-logo"  %>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if user_signed_in? %>
+<%= render 'layouts/nav_links_authorized' %>
+      <% else %>
+        <li><%= link_to "Sign In", new_user_session_path  %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path  %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

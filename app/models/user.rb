@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-   has_many :follows
+   has_many :follows, dependent: :destroy
    has_many :projects, through: :follows
 
    enum role: [:user, :admin]

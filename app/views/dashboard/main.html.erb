@@ -1,4 +1,19 @@
-<div class="project-list">
+<div class="row">
+   <div class="col s4 offset-s8">
+      <div class="card light-blue">
+         <div class="card-content white-text">
+            <span class="card-title">Welcome, <%= @user.first_name %></span>
+            <p>You are currently following <%= @followed_projects.count %> projects.</p>
+         </div>
+         <div class="card-action">
+            <%= link_to "Create New Project", new_project_path, class: "waves-effect waves-light btn light-blue lighten-3 hoverable"  %>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="divider"></div>
+<div class="section">
    <h2>Your Projects</h2>
    <table class="centered striped responsive-table">
       <thead>
@@ -10,6 +25,7 @@
             <th>TM</th>
             <th>People Following</th>
             <th>Created By</th>
+            <th></th>
          </tr>
       </thead>
          <tbody>
@@ -18,10 +34,11 @@
                   <td><%= index + 1 %></td>
                   <td><%= project.name %></td>
                   <td><%= project.job_num %></td>
-                  <td><%= "$#{project.original_contract_amount}" %></td>
+                  <td><%= number_to_currency(project.original_contract_amount) %></td> <%# number_to_currency is a default ruby helper %>
                   <td><%= project.terr_manager %></td>
                   <td><%= project.users.count %></td>
                   <td><%= project.created_by %></td>
+                  <td><%= link_to "View", project_path(project), class: "waves-effect waves-light btn hoverable"  %></td>
                </tr>
             <% end %>
          </tbody>

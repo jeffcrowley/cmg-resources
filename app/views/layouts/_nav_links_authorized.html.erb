@@ -1,0 +1,5 @@
+<li><%= link_to "Home", root_path  %></li>
+  <% if current_user.admin? %>
+    <li><%= link_to "Admin", admin_pages_main_path  %></li>
+  <% end %>
+  <li><%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %></li>

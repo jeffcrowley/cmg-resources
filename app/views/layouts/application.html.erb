@@ -9,10 +9,16 @@
   </head>
 
   <body>
+
+    <header>
+      <%= render 'layouts/navbar' %>
+    </header>
+
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
+      <div class="section"> <%# <---- Materialize class %>
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

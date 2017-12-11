@@ -1,0 +1,24 @@
+<div class="row valign-wrapper">
+   <div class="col s6">
+      <h3><%= @project.name %> - <%= @project.job_num %></h3>
+   </div>
+   <div class="col s6">
+      <%= link_to "Edit Project", edit_project_path(@project), class: "waves-effect waves-light btn-large right"  %>
+   </div>
+</div>
+
+
+<div class="divider"></div>
+<div class="section">
+   <div class="row">
+      <div class="col s4">
+         <%= render 'projects/change_order_card' %>
+      </div>
+      <div class="col s4">
+         <%= render 'projects/rfi_card' %>
+      </div>
+      <div class="col s4">
+         <%= render 'projects/shipment_card' %>
+      </div>
+   </div>
+</div>
