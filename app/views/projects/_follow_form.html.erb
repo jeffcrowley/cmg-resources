@@ -1,0 +1,12 @@
+<%# see Hartl's micropost tutorial or change order log app. Also, see User.rb, and follows_controller.rb for more %>
+
+<% if follow_exists(current_user, @project) == true %>
+   <%= form_for(current_user.follows.find_by(project_id: @project.id), html: { method: :delete }) do |f| %>
+      <%= f.submit "Unfollow Project", class: "waves-effect waves-light red btn-large left" %>
+   <% end %>
+<% else %>
+   <%= form_for(current_user.follows.build) do |f| %>
+      <%= hidden_field_tag :project_id, @project.id %>
+      <%= f.submit "Follow Project", class: "waves-effect waves-light green btn-large left" %>
+   <% end %>
+<% end %>

@@ -18,6 +18,16 @@ class User < ApplicationRecord
       [first_name, last_name].compact.join(' ')
    end
 
+   #follows project (see change order log app and Hartl micropost tutorial)
+   def follow(project)
+      Follow.create(user_id: self.id, project_id: project.id)
+   end
+
+   #unfollows project
+   def unfollow(project)
+      self.follows.find_by(project_id: project.id).destroy
+   end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

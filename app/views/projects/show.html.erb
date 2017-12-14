@@ -2,7 +2,10 @@
    <div class="col s6">
       <h3><%= @project.name %> - <%= @project.job_num %></h3>
    </div>
-   <div class="col s6">
+   <div class="col s3">
+      <%= render 'projects/follow_form' %>
+   </div>
+   <div class="col s3">
       <%= link_to "Edit Project", edit_project_path(@project), class: "waves-effect waves-light btn-large right"  %>
    </div>
 </div>
