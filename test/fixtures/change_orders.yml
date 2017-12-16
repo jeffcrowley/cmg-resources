@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  co_num: MyString
+  gc_co_num: MyString
+  name: MyString
+  date_submitted: 2017-12-15 15:39:17
+  date_received: 2017-12-15 15:39:17
+  initial_co_value: 
+  labor_value: 1.5
+  approved_co_value: 1.5
+  status: MyString
+  notes: MyText
+  project: one
+  user: one
+
+two:
+  co_num: MyString
+  gc_co_num: MyString
+  name: MyString
+  date_submitted: 2017-12-15 15:39:17
+  date_received: 2017-12-15 15:39:17
+  initial_co_value: 
+  labor_value: 1.5
+  approved_co_value: 1.5
+  status: MyString
+  notes: MyText
+  project: two
+  user: two

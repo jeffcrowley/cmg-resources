@@ -1,6 +1,7 @@
 class User < ApplicationRecord
    has_many :follows, dependent: :destroy
    has_many :projects, through: :follows
+   has_many :change_orders
 
    enum role: [:user, :admin]
    after_initialize :set_default_role, if: :new_record?

@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206031436) do
+ActiveRecord::Schema.define(version: 20171215233917) do
+
+  create_table "change_orders", force: :cascade do |t|
+    t.string "co_num"
+    t.string "gc_co_num"
+    t.string "name"
+    t.datetime "date_submitted"
+    t.datetime "date_received"
+    t.float "initial_co_value"
+    t.float "labor_value"
+    t.float "approved_co_value"
+    t.string "status"
+    t.text "notes"
+    t.integer "project_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_change_orders_on_project_id"
+    t.index ["user_id"], name: "index_change_orders_on_user_id"
+  end
 
   create_table "follows", force: :cascade do |t|
     t.integer "user_id"

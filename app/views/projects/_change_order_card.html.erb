@@ -4,7 +4,7 @@
       <p>Filler text will show how many change orders the job has</p>
    </div>
    <div class="card-action">
-      <%= link_to "View Log", "#"  %>
-      <%= link_to  "Add a Change Order", "#" %>
+      <%= link_to "View Log", project_change_orders_path(@project)  %>
+      <%= link_to  "Add a Change Order", new_project_change_order_path(@project) %>
    </div>
 </div>

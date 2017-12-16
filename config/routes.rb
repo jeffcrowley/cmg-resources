@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'admin_pages/main'
 
   get 'admin_pages/users'
@@ -11,8 +12,12 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :projects, except: :index
+  resources :projects, except: :index do
+    resources :change_orders
+  end
+
   resources :follows, only: [:create, :destroy]
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
