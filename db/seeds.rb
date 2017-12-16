@@ -43,4 +43,20 @@ if Rails.env.development?
                            project_id: projects.sample.id)
    end
 
+   400.times do
+      value = Faker::Number.number(5)
+      project = projects.sample
+      project.change_orders.create(user_id: users.sample.id,
+                                                   co_num: (project.change_orders.count + 1).to_s,
+                                                   gc_co_num: Faker::Number.number(4).to_s,
+                                                   name: "Change Order #{project.change_orders.count + 1}",
+                                                   date_submitted: Faker::Time.between(3.weeks.ago, 1.week.ago),
+                                                   date_received: Faker::Time.between(1.week.ago, 1.day.from_now),
+                                                   initial_co_value: value,
+                                                   labor_value: Faker::Number.number(4),
+                                                   approved_co_value: value,
+                                                   status: "Executed",
+                                                   notes: Faker::StarWars.quote)
+   end
+
 end

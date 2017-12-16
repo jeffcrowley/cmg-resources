@@ -6,6 +6,8 @@ class ChangeOrdersController < ApplicationController
   end
 
   def show
+   @project = Project.find(params[:project_id])
+   @change_order = ChangeOrder.find(params[:id])
   end
 
   def index

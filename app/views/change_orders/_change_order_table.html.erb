@@ -1,0 +1,32 @@
+<table class="centered striped responsive-table">
+      <thead>
+         <tr>
+            <th>CO #</th>
+            <th>GC CO #</th>
+            <th>Name</th>
+            <th>Date Submitted</th>
+            <th>Initial Value</th>
+            <th>Date Received</th>
+            <th>Approved Value</th>
+            <th>Labor Amount</th>
+            <th>Status</th>
+            <th></th>
+         </tr>
+      </thead>
+      <tbody>
+         <% @change_orders.each do |change_order| %>
+            <tr>
+               <td><%= change_order.co_num %></td>
+               <td><%= change_order.gc_co_num %></td>
+               <td><%= change_order.name %></td>
+               <td><%= change_order.date_submitted.strftime('%D') %></td>
+               <td><%= number_to_currency(change_order.initial_co_value) %></td>
+               <td><%= change_order.date_received.strftime('%D') %></td>
+               <td><%= number_to_currency(change_order.approved_co_value) %></td>
+               <td><%= number_to_currency(change_order.labor_value) %></td>
+               <td><%= change_order.status %></td>
+               <td><%= link_to "View", project_change_order_path(@project, change_order), class: "waves-effect waves-light btn hoverable"  %></td>
+            </tr>
+         <% end %>
+      </tbody>
+   </table>

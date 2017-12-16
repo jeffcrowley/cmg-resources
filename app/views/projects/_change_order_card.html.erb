@@ -1,7 +1,7 @@
 <div class="card">
    <div class="card-content">
       <span class="card-title"> Change Orders</span>
-      <p>Filler text will show how many change orders the job has</p>
+      <p>There are <%= @project.change_orders.count %> change orders associated with this project.</p>
    </div>
    <div class="card-action">
       <%= link_to "View Log", project_change_orders_path(@project)  %>
