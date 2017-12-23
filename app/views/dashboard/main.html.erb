@@ -22,6 +22,7 @@
             <th>Name</th>
             <th>Job #</th>
             <th>Original Contract</th>
+            <th>Current Contract</th>
             <th>TM</th>
             <th>People Following</th>
             <th>Created By</th>
@@ -35,6 +36,7 @@
                   <td><%= project.name %></td>
                   <td><%= project.job_num %></td>
                   <td><%= number_to_currency(project.original_contract_amount) %></td> <%# number_to_currency is a default ruby helper %>
+                  <td><%= number_to_currency(project.current_contract) %></td> <%# see project.rb %>
                   <td><%= project.terr_manager %></td>
                   <td><%= project.users.count %></td>
                   <td><%= project.created_by %></td>
