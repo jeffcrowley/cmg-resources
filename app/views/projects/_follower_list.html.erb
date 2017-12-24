@@ -1,0 +1,11 @@
+<% if @project.follows.any? %>
+   <div class="collection">
+      <% @project.follows.each do |follow| %>
+         <a href="#" class="collection-item center-align"><%= follow.user.name %></a>
+      <% end %>
+   </div>
+<% else %>
+   <div class="card-panel">
+      <h5>This project has no followers. Follow the project by clicking the button above.</h5>
+   </div>
+<% end %>
