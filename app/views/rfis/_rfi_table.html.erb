@@ -1,0 +1,26 @@
+<table class="centered striped responsive-table">
+   <thead>
+      <tr>
+         <th>RFI #</th>
+         <th>GC RFI #</th>
+         <th>Brief Description</th>
+         <th>Date Submitted</th>
+         <th>Date Answered</th>
+         <th>Scope Change?</th>
+         <th></th>
+      </tr>
+   </thead>
+   <tbody>
+      <% @rfis.each do |rfi| %>
+         <tr>
+            <td><%= rfi.rfi_num %></td>
+            <td><%= rfi.gc_rfi_num %></td>
+            <td><%= rfi.description %></td>
+            <td><%= rfi.date_submitted.strftime('%D') %></td>
+            <td><%= rfi.date_answered.strftime('%D') %></td>
+            <td><%= rfi.scope_change %></td>
+            <td><%= link_to "View", project_rfi_path(@project, rfi), class: "waves-effect waves-light btn hoverable"  %></td>
+         </tr>
+      <% end %>
+   </tbody>
+</table>

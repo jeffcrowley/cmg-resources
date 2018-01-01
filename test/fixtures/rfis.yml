@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rfi_num: MyString
+  gc_rfi_num: MyString
+  description: MyString
+  date_submitted: 2018-01-01 08:54:05
+  date_answered: 2018-01-01 08:54:05
+  scope_change: MyString
+  project: one
+  user: one
+  notes: MyText
+
+two:
+  rfi_num: MyString
+  gc_rfi_num: MyString
+  description: MyString
+  date_submitted: 2018-01-01 08:54:05
+  date_answered: 2018-01-01 08:54:05
+  scope_change: MyString
+  project: two
+  user: two
+  notes: MyText

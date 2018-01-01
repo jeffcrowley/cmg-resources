@@ -2,6 +2,7 @@ class Project < ApplicationRecord
    has_many :follows, dependent: :destroy
    has_many :users, through: :follows
    has_many :change_orders
+   has_many :rfis
 
    def approved_change_order_total
       co_amount = 0.0

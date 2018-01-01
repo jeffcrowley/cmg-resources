@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215233917) do
+ActiveRecord::Schema.define(version: 20180101165405) do
 
   create_table "change_orders", force: :cascade do |t|
     t.string "co_num"
@@ -48,6 +48,22 @@ ActiveRecord::Schema.define(version: 20171215233917) do
     t.string "created_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rfis", force: :cascade do |t|
+    t.string "rfi_num"
+    t.string "gc_rfi_num"
+    t.string "description"
+    t.datetime "date_submitted"
+    t.datetime "date_answered"
+    t.string "scope_change"
+    t.integer "project_id"
+    t.integer "user_id"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_rfis_on_project_id"
+    t.index ["user_id"], name: "index_rfis_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

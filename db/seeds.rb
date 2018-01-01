@@ -43,7 +43,7 @@ if Rails.env.development?
                            project_id: projects.sample.id)
    end
 
-   400.times do
+   500.times do
       value = Faker::Number.number(5)
       project = projects.sample
       project.change_orders.create(user_id: users.sample.id,
@@ -57,6 +57,19 @@ if Rails.env.development?
                                                    approved_co_value: value,
                                                    status: "Executed",
                                                    notes: Faker::StarWars.quote)
+   end
+
+   400.times do
+      project = projects.sample
+      scope_change = ["Yes", "No"]
+      project.rfis.create(user_id: users.sample.id,
+                                 rfi_num: (project.rfis.count + 1).to_s,
+                                 gc_rfi_num: Faker::Number.number(3).to_s,
+                                 description: Faker::Lorem.sentence(5),
+                                 date_submitted: Faker::Time.between(3.weeks.ago, 1.week.ago),
+                                 date_answered: Faker::Time.between(1.week.ago, 1.day.from_now),
+                                 scope_change: scope_change.sample,
+                                 notes: Faker::Lorem.sentences(4))
    end
 
 end

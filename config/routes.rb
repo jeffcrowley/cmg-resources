@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :projects, except: :index do
     resources :change_orders
+    resources :rfis
   end
 
   resources :follows, only: [:create, :destroy]
