@@ -1,0 +1,10 @@
+<div class="card">
+   <div class="card-content">
+      <span class="card-title">Returns</span>
+      <p>There are <%= @project.returns.count %> returns for this project.</p></br>
+   </div>
+   <div class="card-action">
+      <%= link_to "View Log", project_returns_path(@project)  %>
+      <%= link_to  "Add a Return Order", new_project_return_path(@project) %>
+   </div>
+</div>

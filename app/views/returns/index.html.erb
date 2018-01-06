@@ -1,6 +1,6 @@
 <div class="row valign-wrapper">
    <div class="col s8">
-      <h3>RFI Log - <%= @project.name %></h3>
+      <h3>Returns Log - <%= @project.name %></h3>
    </div>
    <div class="col s4">
       <nav>
@@ -8,19 +8,18 @@
             <div class="col s12">
                <%= link_to "Home", root_path, class: "breadcrumb" %>
                <%= link_to "Project", project_path(@project), class: "breadcrumb"  %>
-               <%= link_to "RFI Log", project_rfis_path(@project), class: "breadcrumb"  %>
+               <%= link_to "Returns Log", project_returns_path(@project), class: "breadcrumb"  %>
             </div>
          </div>
       </nav>
    </div>
 </div>
 
-
 <div class="divider"></div>
 <div class="section">
-   <% if @project.rfis.any? %>
-      <%= render 'rfis/rfi_table' %>
+   <% if @project.returns.any? %>
+      <%= render 'returns/returns_table' %>
    <% else %>
-      <h3>There are currently no RFIs associated with this project.</h3>
+      <h3>There are currently no returns associated with this project.</h3>
    <% end %>
 </div>

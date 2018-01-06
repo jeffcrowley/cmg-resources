@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180101165405) do
+ActiveRecord::Schema.define(version: 20180106190448) do
 
   create_table "change_orders", force: :cascade do |t|
     t.string "co_num"
@@ -48,6 +48,23 @@ ActiveRecord::Schema.define(version: 20180101165405) do
     t.string "created_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "returns", force: :cascade do |t|
+    t.string "jobsite_street"
+    t.string "jobsite_city"
+    t.string "jobsite_state"
+    t.string "jobsite_zip"
+    t.string "distro_center"
+    t.string "shipper"
+    t.integer "pallet_count"
+    t.integer "piece_count"
+    t.integer "project_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_returns_on_project_id"
+    t.index ["user_id"], name: "index_returns_on_user_id"
   end
 
   create_table "rfis", force: :cascade do |t|

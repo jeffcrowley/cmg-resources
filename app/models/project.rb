@@ -3,6 +3,7 @@ class Project < ApplicationRecord
    has_many :users, through: :follows
    has_many :change_orders
    has_many :rfis
+   has_many :returns
 
    def approved_change_order_total
       co_amount = 0.0

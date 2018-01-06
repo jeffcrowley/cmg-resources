@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jobsite_street: MyString
+  jobsite_city: MyString
+  jobsite_state: MyString
+  jobsite_zip: MyString
+  distro_center: MyString
+  shipper: MyString
+  pallet_count: 1
+  piece_count: 1
+  project: one
+  user: one
+
+two:
+  jobsite_street: MyString
+  jobsite_city: MyString
+  jobsite_state: MyString
+  jobsite_zip: MyString
+  distro_center: MyString
+  shipper: MyString
+  pallet_count: 1
+  piece_count: 1
+  project: two
+  user: two

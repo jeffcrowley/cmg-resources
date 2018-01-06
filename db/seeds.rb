@@ -1,3 +1,6 @@
+#Required for follow_exists method
+include ApplicationHelper
+
 #Create admin
 
 admin = User.create(first_name: 'Jeff',
@@ -9,6 +12,8 @@ admin = User.create(first_name: 'Jeff',
                               region: 'West')
 admin.confirm if Rails.env.production?
 admin.admin!
+
+#Seed everything
 
 if Rails.env.development?
 
@@ -39,11 +44,17 @@ if Rails.env.development?
    projects = Project.all
 
    600.times do
-      Follow.create(user_id: users.sample.id,
-                           project_id: projects.sample.id)
+      user = users.sample
+      project = projects.sample
+      if follow_exists(user, project) == false
+         Follow.create(user_id: users.sample.id,
+                              project_id: projects.sample.id)
+      else
+         redo
+      end
    end
 
-   500.times do
+   1100.times do
       value = Faker::Number.number(5)
       project = projects.sample
       project.change_orders.create(user_id: users.sample.id,
@@ -71,5 +82,20 @@ if Rails.env.development?
                                  scope_change: scope_change.sample,
                                  notes: Faker::Lorem.sentences(4))
    end
+
+   1000.times do
+      project = projects.sample
+      shippers = ["FedEx Freight", "XPO Logistics", "Conway", "CH Robinson", "Old Dominion"]
+      project.returns.create(user_id: users.sample.id,
+                                       distro_center: distro_centers.keys.sample,
+                                       shipper: shippers.sample,
+                                       jobsite_street: Faker::Address.street_address,
+                                       jobsite_city: Faker::Address.city,
+                                       jobsite_state: Faker::Address.state_abbr,
+                                       jobsite_zip: Faker::Address.zip_code,
+                                       pallet_count: Faker::Number.between(1,10),
+                                       piece_count: Faker::Number.between(1,60))
+   end
+
 
 end
