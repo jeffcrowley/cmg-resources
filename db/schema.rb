@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180106190448) do
+ActiveRecord::Schema.define(version: 20180107153404) do
 
   create_table "change_orders", force: :cascade do |t|
     t.string "co_num"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 20180106190448) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_follows_on_project_id"
     t.index ["user_id"], name: "index_follows_on_user_id"
+  end
+
+  create_table "history_events", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_history_events_on_project_id"
+    t.index ["user_id"], name: "index_history_events_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|

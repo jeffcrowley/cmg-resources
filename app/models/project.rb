@@ -4,6 +4,7 @@ class Project < ApplicationRecord
    has_many :change_orders
    has_many :rfis
    has_many :returns
+   has_many :history_events
 
    def approved_change_order_total
       co_amount = 0.0

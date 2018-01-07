@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
       @project = Project.new(project_params)
       @project.created_by = current_user.name
       if @project.save
+         @project.history_events.create(user_id: current_user.id, description: "#{current_user.name} created project #{@project.job_num} - #{@project.name} (#{@project.created_at.strftime('%D')}).")
          redirect_to @project
       else
          render 'new'
@@ -23,6 +24,7 @@ class ProjectsController < ApplicationController
 
    def show
       @project = Project.find(params[:id])
+      @history_events = @project.history_events.order(created_at: :desc)
    end
 
    private
