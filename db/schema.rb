@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180107153404) do
+ActiveRecord::Schema.define(version: 20180116014327) do
 
   create_table "change_orders", force: :cascade do |t|
     t.string "co_num"
     t.string "gc_co_num"
     t.string "name"
-    t.datetime "date_submitted"
-    t.datetime "date_received"
+    t.date "date_submitted"
+    t.date "date_received"
     t.float "initial_co_value"
     t.float "labor_value"
     t.float "approved_co_value"
@@ -81,14 +81,15 @@ ActiveRecord::Schema.define(version: 20180107153404) do
     t.string "rfi_num"
     t.string "gc_rfi_num"
     t.string "description"
-    t.datetime "date_submitted"
-    t.datetime "date_answered"
+    t.date "date_submitted"
+    t.date "date_answered"
     t.string "scope_change"
     t.integer "project_id"
     t.integer "user_id"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["project_id"], name: "index_rfis_on_project_id"
     t.index ["user_id"], name: "index_rfis_on_user_id"
   end

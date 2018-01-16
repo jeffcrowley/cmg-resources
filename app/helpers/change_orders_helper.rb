@@ -1,5 +1,9 @@
 module ChangeOrdersHelper
 
+    def statuses
+      ["Unsubmitted", "Submitted to GC", "Returned - Needs Revision", "Returned - Awaiting Execution", "Executed"]
+   end
+
    def total_unapproved_co_value(project)
       unapproved_change_orders = project.change_orders.where.not(status: "Executed")
       total = 0.0
@@ -19,19 +23,20 @@ module ChangeOrdersHelper
    end
 
    def total_approved_co_value(project)
-      unapproved_change_orders = project.change_orders.where(status: "Executed")
+      approved_change_orders = project.change_orders.where(status: "Executed")
       total = 0.0
-      unapproved_change_orders.each do |uco|
-         total += uco.approved_co_value
+      approved_change_orders.each do |aco|
+         aco.approved_co_value = 0.0 if aco.approved_co_value.nil?
+         total += aco.approved_co_value
       end
       return total
    end
 
    def total_approved_labor_value(project)
-      unapproved_change_orders = project.change_orders.where(status: "Executed")
+      approved_change_orders = project.change_orders.where(status: "Executed")
       total = 0.0
-      unapproved_change_orders.each do |uco|
-         total += uco.labor_value
+      approved_change_orders.each do |aco|
+         total += aco.labor_value
       end
       return total
    end

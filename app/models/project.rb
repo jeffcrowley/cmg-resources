@@ -10,7 +10,7 @@ class Project < ApplicationRecord
       co_amount = 0.0
       if self.change_orders.any?
          self.change_orders.each do |change_order|
-            co_amount += change_order.approved_co_value
+            co_amount += change_order.approved_co_value if !change_order.approved_co_value.nil? #adds approved co value to the total if it isn't nil.
          end
       end
       return co_amount

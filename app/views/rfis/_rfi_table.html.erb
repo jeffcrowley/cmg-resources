@@ -7,6 +7,7 @@
          <th>Date Submitted</th>
          <th>Date Answered</th>
          <th>Scope Change?</th>
+         <th>Status</th>
          <th></th>
       </tr>
    </thead>
@@ -19,6 +20,7 @@
             <td><%= rfi.date_submitted.strftime('%D') %></td>
             <td><%= rfi.date_answered.strftime('%D') %></td>
             <td><%= rfi.scope_change %></td>
+            <td><%= rfi.status %></td>
             <td><%= link_to "View", project_rfi_path(@project, rfi), class: "waves-effect waves-light btn hoverable"  %></td>
          </tr>
       <% end %>

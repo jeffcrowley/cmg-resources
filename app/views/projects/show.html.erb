@@ -1,11 +1,11 @@
 <div class="row valign-wrapper">
-   <div class="col s6">
+   <div class="col s7">
       <h3><%= @project.name %> - <%= @project.job_num %></h3>
    </div>
-   <div class="col s3">
+   <div class="col s2">
       <%= render 'projects/follow_form' %>
    </div>
-   <div class="col s3">
+   <div class="col s2">
       <%= link_to "Edit Project", edit_project_path(@project), class: "waves-effect waves-light btn-large right"  %>
    </div>
 </div>
@@ -14,7 +14,7 @@
 <div class="divider"></div>
 <div class="section">
    <div class="row">
-      <%= render 'projects/dollar_amounts' %>
+      <%= render 'projects/project_info' %>
    </div>
 </div>
 
@@ -43,7 +43,13 @@
          <div class="divider"></div>
          <div class="section">
             <% @history_events.each do |event| %>
-               <section><p><%= event.description %></p></section>
+               <section>
+                  <div class="row">
+                     <div class="col s12">
+                        <p><%= event.description %></p>
+                     </div>
+                  </div>
+               </section>
             <% end %>
          </div>
       </div>

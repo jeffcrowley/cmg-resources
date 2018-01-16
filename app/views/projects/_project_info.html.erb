@@ -1,0 +1,32 @@
+      <div class="col s3">
+         <div class="card">
+            <div class="card-content">
+               <span class="card-title">Original Contract</span>
+               <h5><%= number_to_currency(@project.original_contract_amount) %></h5>
+            </div>
+         </div>
+      </div>
+      <div class="col s3">
+         <div class="card">
+            <div class="card-content">
+               <span class="card-title">Change Order Adds</span>
+               <h5><%= number_to_currency(@project.approved_change_order_total) %></h5>
+            </div>
+         </div>
+      </div>
+      <div class="col s3">
+         <div class="card">
+            <div class="card-content">
+               <span class="card-title">Current Contract</span>
+               <h5><%= number_to_currency(@project.current_contract) %></h5>
+            </div>
+         </div>
+      </div>
+      <div class="col s3">
+         <div class="card">
+            <div class="card-content">
+               <span class="card-title">Territory Manager</span>
+               <h5><%= @project.terr_manager %></h5>
+            </div>
+         </div>
+      </div>

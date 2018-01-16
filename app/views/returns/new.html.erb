@@ -1,2 +1,33 @@
-<h1>Returns#new</h1>
-<p>Find me in app/views/returns/new.html.erb</p>
+<h2>New Return Shipment - <%= @project.name %></h2>
+
+<%= simple_form_for [@project, @return] do |f| %>
+      <div class="row">
+         <div class="col s12">
+            <%= f.hidden_field :user_id, value: current_user.id  %>
+            <div class="row">
+               <%= f.input :jobsite_street, label: "Jobsite Address", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :jobsite_city,  label: "Jobsite City", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :jobsite_state, label: "Jobsite State", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :jobsite_zip, label: "Jobsite ZIP Code", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :distro_center, label: false, collection: distro_centers, prompt: "Destination", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :shipper, label: "Shipping Company", wrapper_html: { class: "col s3" } %>
+            </div>
+            <div class="row">
+               <%= f.input :pallet_count, label: false, collection: 1..20, prompt: "Pallet Count", wrapper_html: { class: "col s3" } %>
+            </div>
+            <div class="row">
+               <%= f.button :submit, "Add Return Shipment" %>
+            </div>
+         </div>
+      </div>
+<% end %>

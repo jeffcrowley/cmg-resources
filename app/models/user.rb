@@ -26,13 +26,13 @@ class User < ApplicationRecord
    def follow(project)
       Follow.create(user_id: self.id, project_id: project.id)
       new_follow = self.follows.find_by(project_id: project.id)
-      project.history_events.create(user_id: self.id, project_id: project.id, description: "#{self.name} started following project #{project.job_num} - #{project.name} (#{new_follow.created_at.strftime('%D')}.)")
+      project.history_events.create(user_id: self.id, project_id: project.id, description: "#{self.name} started following project #{project.job_num} - #{project.name} (#{new_follow.created_at.strftime('%D')}).")
    end
 
    #unfollows project
    def unfollow(project)
       follow = self.follows.find_by(project_id: project.id)
-      project.history_events.create(user_id: self.id, project_id: project.id, description: "#{self.name} stopped following project #{project.job_num} - #{project.name} (#{Time.now.strftime('%D')}.)")
+      project.history_events.create(user_id: self.id, project_id: project.id, description: "#{self.name} stopped following project #{project.job_num} - #{project.name} (#{Time.now.strftime('%D')}).")
       follow.destroy
    end
 

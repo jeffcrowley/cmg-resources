@@ -19,9 +19,9 @@
                <td><%= change_order.co_num %></td>
                <td><%= change_order.gc_co_num %></td>
                <td><%= change_order.name %></td>
-               <td><%= change_order.date_submitted.strftime('%D') %></td>
+               <td><%= change_order.date_submitted.strftime('%D') if !change_order.date_submitted.nil? %></td>
                <td><%= number_to_currency(change_order.initial_co_value) %></td>
-               <td><%= change_order.date_received.strftime('%D') %></td>
+               <td><%= change_order.date_received.strftime('%D') if !change_order.date_received.nil? %></td>
                <td><%= number_to_currency(change_order.approved_co_value) %></td>
                <td><%= number_to_currency(change_order.labor_value) %></td>
                <td><%= change_order.status %></td>
