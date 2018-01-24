@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116014327) do
+ActiveRecord::Schema.define(version: 20180124204204) do
 
   create_table "change_orders", force: :cascade do |t|
     t.string "co_num"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20180116014327) do
     t.index ["user_id"], name: "index_history_events_on_user_id"
   end
 
+  create_table "pallets", force: :cascade do |t|
+    t.integer "piece_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "return_id"
+    t.index ["return_id"], name: "index_pallets_on_return_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.integer "job_num"
@@ -68,7 +76,6 @@ ActiveRecord::Schema.define(version: 20180116014327) do
     t.string "distro_center"
     t.string "shipper"
     t.integer "pallet_count"
-    t.integer "piece_count"
     t.integer "project_id"
     t.integer "user_id"
     t.datetime "created_at", null: false

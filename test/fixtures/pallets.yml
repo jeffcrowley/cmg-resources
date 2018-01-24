@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  piece_count: 1
+  returns: one
+
+two:
+  piece_count: 1
+  returns: two

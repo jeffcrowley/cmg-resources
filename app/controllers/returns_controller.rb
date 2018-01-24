@@ -1,7 +1,10 @@
 class ReturnsController < ApplicationController
+
   def new
     @project = Project.find(params[:project_id])
     @return = @project.returns.build
+    @pallet_count = params[:pallet_count].to_i
+    @pallet_count.times { @return.pallets.build }
   end
 
   def create
@@ -30,7 +33,7 @@ class ReturnsController < ApplicationController
   private
 
   def return_params
-    params.require(:return).permit(:jobsite_street, :jobsite_city, :jobsite_state, :jobsite_zip, :distro_center, :shipper, :pallet_count, :piece_count, :user_id)
+    params.require(:return).permit(:jobsite_street, :jobsite_city, :jobsite_state, :jobsite_zip, :distro_center, :shipper, :pallet_count, :user_id, pallets_attributes: [:piece_count])
   end
 
 end

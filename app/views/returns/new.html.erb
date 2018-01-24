@@ -4,6 +4,7 @@
       <div class="row">
          <div class="col s12">
             <%= f.hidden_field :user_id, value: current_user.id  %>
+            <%= f.hidden_field :pallet_count, value: params[:pallet_count] %>
             <div class="row">
                <%= f.input :jobsite_street, label: "Jobsite Address", wrapper_html: { class: "col s6" } %>
             </div>
@@ -22,11 +23,14 @@
             <div class="row">
                <%= f.input :shipper, label: "Shipping Company", wrapper_html: { class: "col s3" } %>
             </div>
+            <%= f.fields_for :pallets do |p| %>
+               <div class="row">
+                  <%= p.input :piece_count, label: "Number of Pieces on Pallet", collection: 1..99, wrapper_html: { class: "col s3" } %>
+               </div>
+            <% end %>
+
             <div class="row">
-               <%= f.input :pallet_count, label: false, collection: 1..20, prompt: "Pallet Count", wrapper_html: { class: "col s3" } %>
-            </div>
-            <div class="row">
-               <%= f.button :submit, "Add Return Shipment" %>
+               <%= f.button :submit, "Add Return" %>
             </div>
          </div>
       </div>
