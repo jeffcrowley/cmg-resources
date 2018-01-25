@@ -7,6 +7,7 @@
          <th>Pallet Count</th>
          <th>Piece Count</th>
          <th></th>
+         <th></th>
       </tr>
    </thead>
    <tbody>
@@ -17,6 +18,7 @@
             <td><%= r.shipper %></td>
             <td><%= r.pallet_count %></td>
             <td><%= r.piece_count %></td>
+            <td><%= link_to "Edit", edit_project_return_path(@project, r), class: "waves-effect waves-light btn hoverable orange"  %></td>
             <td><%= link_to "Generate RGA Label", "#", class: "waves-effect waves-light btn hoverable"  %></td>
          </tr>
       <% end %>

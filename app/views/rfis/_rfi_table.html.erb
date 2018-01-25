@@ -21,7 +21,7 @@
             <td><%= rfi.date_answered.strftime('%D') %></td>
             <td><%= rfi.scope_change %></td>
             <td><%= rfi.status %></td>
-            <td><%= link_to "View", project_rfi_path(@project, rfi), class: "waves-effect waves-light btn hoverable"  %></td>
+            <td><%= link_to "Edit", edit_project_rfi_path(@project, rfi), class: "waves-effect waves-light btn hoverable"  %></td>
          </tr>
       <% end %>
    </tbody>

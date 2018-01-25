@@ -1,2 +1,32 @@
-<h1>Rfis#edit</h1>
-<p>Find me in app/views/rfis/edit.html.erb</p>
+<h2>Edit RFI - <%= @project.name %></h2>
+
+<%= simple_form_for [@project, @rfi] do |f| %>
+      <div class="row">
+         <div class="col s12">
+            <div class="row">
+               <%= f.input :rfi_num, label: "Internal RFI Number", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :gc_rfi_num,  label: "GC RFI Number", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :description, label: "RFI Title / Brief Description", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :date_submitted, label: "Date Submitted to GC", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :date_answered, label: "Date RFI was Answered by GC/Architect", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :scope_change, label: "Scope Change?", prompt: "Will There be A Scope Change?", collection: scope_change_any, wrapper_html: { class: "col s3" } %>
+            </div>
+            <div class="row">
+               <%= f.input :status, label: "Status", collection: statuses, prompt: "RFI Status", wrapper_html: { class: "col s3" } %>
+            </div>
+            <div class="row">
+               <%= f.button :submit, "Update RFI" %>
+            </div>
+         </div>
+      </div>
+<% end %>

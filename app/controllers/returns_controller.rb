@@ -20,6 +20,21 @@ class ReturnsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:project_id])
+    @return = Return.find(params[:id])
+    @pallets = @return.pallets
+  end
+
+  def update
+    @project = Project.find(params[:project_id])
+    @return = Return.find(params[:id])
+    if @return.update_attributes(update_params)
+      @project.history_events.create(user_id: current_user.id, project_id: @project.id, description: "#{current_user.name} edited
+        a return shipment for project #{@project.job_num} - #{@project.name} (#{@return.created_at.strftime('%D')}).")
+      redirect_to project_returns_path(@project)
+    else
+      render 'edit'
+    end
   end
 
   def show
@@ -34,6 +49,10 @@ class ReturnsController < ApplicationController
 
   def return_params
     params.require(:return).permit(:jobsite_street, :jobsite_city, :jobsite_state, :jobsite_zip, :distro_center, :shipper, :pallet_count, :user_id, pallets_attributes: [:piece_count])
+  end
+
+  def update_params
+    params.require(:return).permit(:jobsite_street, :jobsite_city, :jobsite_state, :jobsite_zip, :distro_center, :shipper, :pallet_count, pallets_attributes: [:id, :piece_count])
   end
 
 end

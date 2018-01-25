@@ -10,13 +10,13 @@
          <div class="col s12">
             <%= f.hidden_field :user_id, value: current_user.id  %>
             <div class="row">
-               <%= f.input :co_num, label: "Change Order Number", input_html: { data-length: "50" }, wrapper_html: { class: "col s6" } %>
+               <%= f.input :co_num, label: "Change Order Number", wrapper_html: { class: "col s6" } %>
             </div>
             <div class="row">
                <%= f.input :gc_co_num,  label: "GC Change Order Number", wrapper_html: { class: "col s6" } %>
             </div>
             <div class="row">
-               <%= f.input :name, label: "Name / Brief Description", wrapper_html: { class: "col s6" } %>
+               <%= f.input :name, label: "Name / Brief Description", input_html: { id: "input-text", 'data-length' => "50" }, wrapper_html: { class: "col s6" } %>
             </div>
             <div class="row">
                <%= f.input :date_submitted, label: "Date Submitted to GC", wrapper_html: { class: "col s6" } %>

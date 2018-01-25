@@ -1,2 +1,43 @@
-<h1>ChangeOrders#edit</h1>
-<p>Find me in app/views/change_orders/edit.html.erb</p>
+<h2>Edit Change Order - <%= @project.name %></h2>
+
+<%= simple_form_for [@project, @change_order] do |f| %>
+<% if @change_order.errors.any? %>
+    <% @change_order.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    <% end %>
+      <div class="row">
+         <div class="col s12">
+            <div class="row">
+               <%= f.input :co_num, label: "Change Order Number", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :gc_co_num,  label: "GC Change Order Number", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :name, label: "Name / Brief Description", input_html: { id: "input-text", 'data-length' => "50" }, wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :date_submitted, label: "Date Submitted to GC", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :date_received, label: "Date Approved Change Order was Received from GC", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :initial_co_value, as: :string, label: "Initial Change Order Value", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :labor_value, as: :string, label: "Labor Value", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :approved_co_value, as: :string, label: "Approved Change Order Value", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.input :status, as: :select, label: "Status", collection: statuses, prompt: "Change Order Status", wrapper_html: { class: "col s6" } %>
+            </div>
+            <div class="row">
+               <%= f.button :submit, "Update Change Order" %>
+            </div>
+         </div>
+      </div>
+<% end %>

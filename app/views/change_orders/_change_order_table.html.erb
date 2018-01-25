@@ -25,7 +25,7 @@
                <td><%= number_to_currency(change_order.approved_co_value) %></td>
                <td><%= number_to_currency(change_order.labor_value) %></td>
                <td><%= change_order.status %></td>
-               <td><%= link_to "View", project_change_order_path(@project, change_order), class: "waves-effect waves-light btn hoverable"  %></td>
+               <td><%= link_to "Edit", edit_project_change_order_path(@project, change_order), class: "waves-effect waves-light btn hoverable"  %></td>
             </tr>
          <% end %>
       </tbody>
