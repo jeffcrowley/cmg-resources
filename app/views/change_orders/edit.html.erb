@@ -1,4 +1,4 @@
-<h2>Edit Change Order - <%= @project.name %></h2>
+<h3>Edit Change Order - <%= @project.name %></h3>
 
 <%= simple_form_for [@project, @change_order] do |f| %>
 <% if @change_order.errors.any? %>
@@ -33,10 +33,15 @@
                <%= f.input :approved_co_value, as: :string, label: "Approved Change Order Value", wrapper_html: { class: "col s6" } %>
             </div>
             <div class="row">
-               <%= f.input :status, as: :select, label: "Status", collection: statuses, prompt: "Change Order Status", wrapper_html: { class: "col s6" } %>
+               <%= f.input :status, as: :select, label: "Status", collection: change_order_statuses, prompt: "Change Order Status", wrapper_html: { class: "col s6" } %>
             </div>
             <div class="row">
-               <%= f.button :submit, "Update Change Order" %>
+               <div class="col s3">
+                  <%= f.button :submit, "Update Change Order" %>
+               </div>
+               <div class="col s3">
+                  <%= link_to "DELETE CHANGE ORDER", project_change_order_path(@project, @change_order), method: :delete, data: { confirm: "Are you sure? This cannot be undone." }, class: "waves-effect waves-light btn red"  %>
+               </div>
             </div>
          </div>
       </div>

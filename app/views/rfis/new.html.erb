@@ -22,7 +22,7 @@
                <%= f.input :scope_change, label: "Scope Change?", prompt: "Will There be A Scope Change?", collection: scope_change_any, wrapper_html: { class: "col s3" } %>
             </div>
             <div class="row">
-               <%= f.input :status, label: "Status", collection: statuses, prompt: "RFI Status", wrapper_html: { class: "col s3" } %>
+               <%= f.input :status, label: "Status", collection: rfi_statuses, prompt: "RFI Status", wrapper_html: { class: "col s3" } %>
             </div>
             <div class="row">
                <%= f.button :submit, "Add RFI" %>

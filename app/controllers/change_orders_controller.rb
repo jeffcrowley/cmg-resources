@@ -43,6 +43,15 @@ class ChangeOrdersController < ApplicationController
    @change_orders = @project.change_orders
   end
 
+  def destroy
+    @project = Project.find(params[:project_id])
+    @change_order = ChangeOrder.find(params[:id])
+    @project.history_events.create(user_id: current_user.id, project_id: @project.id, description: "#{current_user.name} deleted
+        Change Order #{@change_order.co_num} - #{@change_order.name}, for project #{@project.job_num} - #{@project.name} (#{Time.now.strftime('%D')}).")
+    @change_order.destroy
+    redirect_to project_change_orders_path(@project)
+  end
+
   private
 
   def change_order_params

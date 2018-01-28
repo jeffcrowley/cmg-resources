@@ -1,4 +1,4 @@
-<h2>Edit RFI - <%= @project.name %></h2>
+<h3>Edit RFI - <%= @project.name %></h3>
 
 <%= simple_form_for [@project, @rfi] do |f| %>
       <div class="row">
@@ -22,10 +22,15 @@
                <%= f.input :scope_change, label: "Scope Change?", prompt: "Will There be A Scope Change?", collection: scope_change_any, wrapper_html: { class: "col s3" } %>
             </div>
             <div class="row">
-               <%= f.input :status, label: "Status", collection: statuses, prompt: "RFI Status", wrapper_html: { class: "col s3" } %>
+               <%= f.input :status, label: "Status", collection: rfi_statuses, prompt: "RFI Status", wrapper_html: { class: "col s3" } %>
             </div>
             <div class="row">
-               <%= f.button :submit, "Update RFI" %>
+               <div class="col s3">
+                  <%= f.button :submit, "Update RFI" %>
+               </div>
+               <div class="col s3">
+                  <%= link_to "DELETE RFI", project_rfi_path(@project, @rfi), method: :delete, data: { confirm: "Are you sure? This cannot be undone." }, class: "waves-effect waves-light btn red"  %>
+               </div>
             </div>
          </div>
       </div>

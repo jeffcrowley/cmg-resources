@@ -34,7 +34,7 @@
                <%= f.input :approved_co_value, as: :string, label: "Approved Change Order Value", wrapper_html: { class: "col s6" } %>
             </div>
             <div class="row">
-               <%= f.input :status, as: :select, label: false, collection: statuses, prompt: "Change Order Status", wrapper_html: { class: "col s6" } %>
+               <%= f.input :status, as: :select, label: false, collection: change_order_statuses, prompt: "Change Order Status", wrapper_html: { class: "col s6" } %>
             </div>
             <div class="row">
                <%= f.button :submit, "Add Change Order" %>

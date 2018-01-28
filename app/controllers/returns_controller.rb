@@ -45,6 +45,15 @@ class ReturnsController < ApplicationController
    @returns = @project.returns
   end
 
+  def destroy
+    @project = Project.find(params[:project_id])
+    @return = Return.find(params[:id])
+    @project.history_events.create(user_id: current_user.id, project_id: @project.id, description: "#{current_user.name} deleted
+        a return shipment for project #{@project.job_num} - #{@project.name} (#{Time.now.strftime('%D')}).")
+    @return.destroy
+    redirect_to project_returns_path(@project)
+  end
+
   private
 
   def return_params

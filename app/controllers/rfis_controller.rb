@@ -41,6 +41,15 @@ class RfisController < ApplicationController
    @rfis = @project.rfis
   end
 
+  def destroy
+    @project = Project.find(params[:project_id])
+    @rfi = Rfi.find(params[:id])
+    @project.history_events.create(user_id: current_user.id, project_id: @project.id, description: "#{current_user.name} deleted
+        RFI #{@rfi.rfi_num} for project #{@project.job_num} - #{@project.name} (#{Time.now.strftime('%D')}).")
+    @rfi.destroy
+    redirect_to project_rfis_path(@project)
+  end
+
   private
 
   def rfi_params

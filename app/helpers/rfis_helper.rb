@@ -4,7 +4,7 @@ module RfisHelper
       ["Yes", "No", "Unknown"]
    end
 
-   def statuses
+   def rfi_statuses
       ["Unsubmitted", "Awaiting Reply", "Answered"]
    end
 

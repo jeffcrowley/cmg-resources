@@ -1,7 +1,7 @@
 class Return < ApplicationRecord
   belongs_to :project
   belongs_to :user
-  has_many :pallets
+  has_many :pallets, dependent: :destroy
   accepts_nested_attributes_for :pallets
 
   def piece_count

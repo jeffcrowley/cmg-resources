@@ -1,4 +1,4 @@
-<h2>Edit Return Shipment - <%= @project.name %></h2>
+<h3>Edit Return Shipment - <%= @project.name %></h3>
 
 <%= simple_form_for [@project, @return] do |f| %>
       <div class="row">
@@ -28,7 +28,12 @@
             <% end %>
 
             <div class="row">
-               <%= f.button :submit, "Update Return" %>
+               <div class="col s3">
+                  <%= f.button :submit, "Update Return" %>
+               </div>
+               <div class="col s3">
+                  <%= link_to "DELETE RETURN", project_return_path(@project, @return), method: :delete, data: { confirm: "Are you sure? This cannot be undone." }, class: "waves-effect waves-light btn red"  %>
+               </div>
             </div>
          </div>
       </div>

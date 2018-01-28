@@ -1,6 +1,6 @@
 module ChangeOrdersHelper
 
-    def statuses
+    def change_order_statuses
       ["Unsubmitted", "Submitted to GC", "Returned - Needs Revision", "Returned - Awaiting Execution", "Executed"]
    end
 

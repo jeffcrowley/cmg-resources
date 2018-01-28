@@ -1,9 +1,9 @@
 class Project < ApplicationRecord
    has_many :follows, dependent: :destroy
    has_many :users, through: :follows
-   has_many :change_orders
-   has_many :rfis
-   has_many :returns
+   has_many :change_orders, dependent: :destroy
+   has_many :rfis, dependent: :destroy
+   has_many :returns, dependent: :destroy
    has_many :history_events
 
    def approved_change_order_total
